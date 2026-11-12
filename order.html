@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Заявка на попадание в редакционные плейлисты SoundProject.">
+  <title>Подать релиз — SoundProject</title>
+  <script>(function(){try{var t=localStorage.getItem('sp-theme');if(!t)t='dark';document.documentElement.setAttribute('data-bs-theme',t)}catch(e){}})()</script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body id="top">
+<header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand brand" href="index.html">SOUNDPROJECT<span>.</span><small>НЕЗАВИСИМАЯ МУЗЫКАЛЬНАЯ ПЛАТФОРМА</small></a>
+      <button class="theme-toggle order-lg-last ms-auto ms-lg-3 me-2 me-lg-0" id="themeToggle" type="button" aria-label="Сменить тему" aria-pressed="true">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-label="Открыть меню">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link " href="index.html">Главная</a></li><li class="nav-item"><a class="nav-link " href="catalog.html">Каталог</a></li><li class="nav-item"><a class="nav-link " href="about.html">О нас</a></li><li class="nav-item"><a class="nav-link " href="contacts.html">Контакты</a></li>
+          <li class="nav-item"><button class="btn btn-dark-soft ms-lg-2" type="button" data-bs-toggle="modal" data-bs-target="#uploadModal">+ Загрузить трек</button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">РЕДАКЦИОННЫЙ ПЛЕЙЛИСТ</div>
+      <h1>Давайте услышим<br><em>ваш трек.</em></h1>
+      <p>Расскажите о своём релизе — мы отслушиваем каждую заявку и добавляем лучшие работы в подборку недели.</p>
+    </div>
+  </section>
+
+  <section class="section-space pt-4">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-12 col-lg-7">
+          <div class="form-panel">
+            <div class="eyebrow">ЗАЯВКА НА ПРОДВИЖЕНИЕ</div>
+            <h2>Несколько деталей —<br><em>и мы в эфире.</em></h2>
+            <div id="orderAlert" class="alert alert-soft d-none mb-4" role="alert">
+              ✓ Спасибо! Заявка на рассмотрение релиза принята.
+            </div>
+            <form id="orderForm" novalidate>
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <label for="orderName" class="form-label">Псевдоним / Проект *</label>
+                  <input class="form-control" id="orderName" type="text" placeholder="Имя артиста" required>
+                  <div class="invalid-feedback">Укажите имя или псевдоним.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="orderEmail" class="form-label">Электронная почта *</label>
+                  <input class="form-control" id="orderEmail" type="email" placeholder="artist@example.com" required>
+                  <div class="invalid-feedback">Укажите корректный e-mail.</div>
+                </div>
+                <div class="col-12">
+                  <label for="musicGenre" class="form-label">Основной жанр релиза *</label>
+                  <select class="form-select" id="musicGenre" required>
+                    <option value="" selected disabled>Выберите направление</option>
+                    <option>Electronic / House / Techno</option>
+                    <option>Lo-Fi / Chillhop</option>
+                    <option>Hip-Hop / Rap / Trap</option>
+                    <option>Indie Pop / Synth-Pop</option>
+                    <option>Rock / Alternative</option>
+                    <option>Ambient / Instrumental</option>
+                  </select>
+                  <div class="invalid-feedback">Выберите жанр.</div>
+                </div>
+                <div class="col-12">
+                  <label for="releaseStory" class="form-label">О треке и настроении</label>
+                  <textarea class="form-control" id="releaseStory" rows="4" placeholder="Ссылка на демо, история создания или настроение композиции..."></textarea>
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="privacyCheck" required>
+                    <label class="form-check-label" for="privacyCheck">Я подтверждаю авторские права и согласен(на) на обработку данных *</label>
+                    <div class="invalid-feedback">Необходимо подтвердить согласие.</div>
+                  </div>
+                </div>
+                <div class="col-12 d-flex flex-wrap align-items-center gap-3 mt-4">
+                  <button class="btn btn-dark btn-lg" type="submit">Отправить заявку ↗</button>
+                  <small class="text-muted">Поля со звёздочкой обязательны</small>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <aside class="col-12 col-lg-5">
+          <div class="order-aside">
+            <span class="aside-flower">✳</span>
+            <div class="eyebrow">СОВЕТ РЕДАКЦИИ</div>
+            <h3>Не гонитесь за шаблонами. Делайте <em>свой звук.</em></h3>
+            <p>Мы ценим искренность, живую атмосферу и смелые эксперименты со звучанием. Даже трек, записанный дома на ноутбуке, может открыть подборку недели.</p>
+            <hr>
+            <div class="aside-contact">
+              <span>ЕСТЬ ВОПРОСЫ?</span>
+              <a href="mailto:hello@soundproject.ru">hello@soundproject.ru ↗</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-5">
+      <div style="font-size:44px;color:var(--accent);margin-bottom:12px">✳</div>
+      <h2 class="h3" id="successModalLabel">Заявка отправлена!</h2>
+      <p class="text-muted small my-3">Спасибо за доверие! Редакция SoundProject прослушает материал и свяжется с вами по почте.</p>
+      <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Отлично</button>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-12 col-md-4">
+        <a class="brand brand--footer" href="index.html">SOUNDPROJECT<span>.</span></a>
+        <p class="footer-muted">Независимая музыкальная платформа для артистов и слушателей. Открывайте новую музыку каждый день.</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <h3>Навигация</h3>
+        <ul class="footer-nav-list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+          <li><a href="order.html">Подать релиз</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-5">
+        <h3>Связаться</h3>
+        <a class="footer-contact" href="mailto:hello@soundproject.ru"><span class="contact-icon">✉</span>hello@soundproject.ru</a>
+        <a class="footer-contact" href="tel:+78005553535"><span class="contact-icon">☏</span>+7 (800) 555-35-35</a>
+        <div class="footer-socials">
+          <h3>Мы в соцсетях</h3>
+          <div class="social-links social-links--footer">
+            <a href="https://vk.com/" target="_blank" rel="noopener noreferrer"><span class="social-mark">ВК</span><span>ВКонтакте</span><span>↗</span></a>
+            <a href="https://max.ru/" target="_blank" rel="noopener noreferrer"><span class="social-mark">М</span><span>MAX</span><span>↗</span></a>
+            <a href="https://t.me/" target="_blank" rel="noopener noreferrer"><span class="social-mark">ТГ</span><span>Telegram</span><span>↗</span></a>
+            <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer"><span class="social-mark">YT</span><span>YouTube</span><span>↗</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SoundProject. Все права защищены.</span>
+      <a href="#top">Наверх ↑</a>
+    </div>
+  </div>
+</footer>
+
+<button id="backTop" type="button" aria-label="Наверх">↑</button>
+
+<!-- Модальное окно загрузки трека -->
+<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form id="uploadForm" novalidate>
+        <div class="modal-header border-bottom-0 pb-0">
+          <h2 class="h4 mb-0" id="uploadModalLabel">Загрузить трек</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="upTitle" class="form-label">Название трека *</label>
+            <input type="text" class="form-control" id="upTitle" placeholder="Например: Ночной город" required minlength="2">
+            <div class="invalid-feedback">Введите название трека (минимум 2 символа).</div>
+          </div>
+          <div class="mb-3">
+            <label for="upArtist" class="form-label">Исполнитель *</label>
+            <input type="text" class="form-control" id="upArtist" placeholder="Ваш псевдоним" required>
+            <div class="invalid-feedback">Укажите имя исполнителя.</div>
+          </div>
+          <div class="mb-3">
+            <label for="upGenre" class="form-label">Жанр *</label>
+            <select class="form-select" id="upGenre" required>
+              <option value="" selected disabled>Выберите жанр</option>
+              <option value="electronic">Electronic</option>
+              <option value="lofi">Lo-Fi</option>
+              <option value="hiphop">Hip-Hop</option>
+              <option value="pop">Pop</option>
+              <option value="rock">Rock</option>
+              <option value="ambient">Ambient</option>
+            </select>
+            <div class="invalid-feedback">Выберите жанр.</div>
+          </div>
+          <div class="mb-3">
+            <label for="upAudio" class="form-label">Аудиофайл *</label>
+            <input type="file" class="form-control" id="upAudio" accept="audio/*" required>
+            <div class="invalid-feedback">Прикрепите аудиофайл.</div>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="upRights" required>
+            <label class="form-check-label" for="upRights">Подтверждаю, что обладаю авторскими правами на релиз *</label>
+            <div class="invalid-feedback">Необходимо подтвердить права.</div>
+          </div>
+        </div>
+        <div class="modal-footer border-top-0 pt-0">
+          <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Отмена</button>
+          <button type="submit" class="btn btn-dark">Опубликовать ↗</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Глобальный нижний аудиоплеер -->
+<aside class="global-player" aria-label="Аудиоплеер">
+  <div class="container h-100">
+    <div class="d-flex align-items-center h-100 gap-3">
+      <div style="min-width:0;flex:0 0 190px" class="d-none d-md-block">
+        <div class="player-title text-truncate" id="playerTitle">Выберите трек</div>
+        <div class="player-artist text-truncate" id="playerArtist">SoundProject</div>
+      </div>
+      <div class="d-flex align-items-center gap-1">
+        <button class="player-btn" id="pPrev" type="button" aria-label="Предыдущий">⏮</button>
+        <button class="player-btn play-btn" id="pToggle" type="button" aria-label="Играть / Пауза">▶</button>
+        <button class="player-btn" id="pNext" type="button" aria-label="Следующий">⏭</button>
+      </div>
+      <div class="d-flex align-items-center gap-3 flex-grow-1">
+        <span class="player-time d-none d-sm-inline" id="pTime">0:00 / 0:00</span>
+        <div class="player-bar-track" id="pBarTrack" role="progressbar" aria-label="Прогресс">
+          <div class="player-bar-fill" id="pBarFill" style="width:0"></div>
+        </div>
+      </div>
+      <div class="vol-wrap d-none d-lg-flex align-items-center gap-2">
+        <span style="font-size:13px;color:#a99c91">🔊</span>
+        <input type="range" id="pVolume" min="0" max="100" value="80" aria-label="Громкость">
+      </div>
+    </div>
+  </div>
+</aside>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

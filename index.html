@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SoundProject — независимая музыкальная платформа.">
+  <title>SoundProject — музыка, которую делают рядом</title>
+  <script>(function(){try{var t=localStorage.getItem('sp-theme');if(!t)t='dark';document.documentElement.setAttribute('data-bs-theme',t)}catch(e){}})()</script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body id="top">
+<header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand brand" href="index.html">SOUNDPROJECT<span>.</span><small>НЕЗАВИСИМАЯ МУЗЫКАЛЬНАЯ ПЛАТФОРМА</small></a>
+      <button class="theme-toggle order-lg-last ms-auto ms-lg-3 me-2 me-lg-0" id="themeToggle" type="button" aria-label="Сменить тему" aria-pressed="true">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-label="Открыть меню">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Главная</a></li><li class="nav-item"><a class="nav-link " href="catalog.html">Каталог</a></li><li class="nav-item"><a class="nav-link " href="about.html">О нас</a></li><li class="nav-item"><a class="nav-link " href="contacts.html">Контакты</a></li>
+          <li class="nav-item"><button class="btn btn-dark-soft ms-lg-2" type="button" data-bs-toggle="modal" data-bs-target="#uploadModal">+ Загрузить трек</button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-12 col-lg-6">
+          <div class="eyebrow"><span></span> НЕЗАВИСИМАЯ МУЗЫКАЛЬНАЯ ПЛАТФОРМА</div>
+          <h1 class="hero-title">Музыка, которую<br>делают <em>рядом</em><br>с вами.</h1>
+          <p class="hero-copy">Слушайте новых артистов, сохраняйте любимые треки и выкладывайте своё творчество — в один клик и без лишних барьеров.</p>
+          <form class="hero-search mt-4" action="catalog.html" method="get" role="search">
+            <input class="form-control" type="search" name="q" placeholder="Найти трек, артиста или жанр…" aria-label="Поиск по трекам" autocomplete="off">
+            <button class="btn btn-dark" type="submit">Найти</button>
+          </form>
+          <div class="d-flex flex-wrap gap-3 mt-4">
+            <button class="btn btn-dark btn-lg" id="heroPlay" type="button">▶ Включить тренд</button>
+            <a class="btn btn-outline-dark btn-lg" href="catalog.html">Открыть каталог ↗</a>
+          </div>
+          <div class="hero-note mt-5">
+            <span class="hero-note__line"></span>
+            <span><span class="hero-note__count">9</span> НЕЗАВИСИМЫХ РЕЛИЗОВ В КАТАЛОГЕ</span>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="hero-visual">
+            <div class="hero-visual__image"></div>
+            <div class="hero-stamp">SOUND<br>IS A<br>STORY</div>
+            <div class="wave" id="wave" aria-hidden="true"></div>
+            <div class="hero-caption"><span>01 / 04</span><span>LIVE STREAM · SOUNDPROJECT</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ticker">
+    <div class="container">
+      <div class="ticker-inner">
+        <span>ELECTRONIC</span> ✳ <span>LO-FI</span> ✳ <span>HIP-HOP</span> ✳ <span>AMBIENT</span> ✳ <span>INDIE ROCK</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space" id="features">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">ПОЧЕМУ SOUNDPROJECT</div>
+          <h2>Слушать.<br><em>Открывать.</em> Делиться.</h2>
+        </div>
+        <p>Мы создали пространство, где музыка звучит чисто, а путь от студии до слушателя занимает одну минуту.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <article class="advantage-card">
+            <span class="advantage-number">01</span>
+            <div class="advantage-icon">✳</div>
+            <h3>Загрузка за минуту</h3>
+            <p>Название, жанр и аудиофайл. Трек моментально появляется в общем каталоге без сложной модерации.</p>
+          </article>
+        </div>
+        <div class="col-12 col-md-4">
+          <article class="advantage-card">
+            <span class="advantage-number">02</span>
+            <div class="advantage-icon">♪</div>
+            <h3>Непрерывный плеер</h3>
+            <p>Нижний аудиоплеер продолжает играть, пока вы изучаете каталог, читаете об артистах или меняете тему.</p>
+          </article>
+        </div>
+        <div class="col-12 col-md-4">
+          <article class="advantage-card">
+            <span class="advantage-number">03</span>
+            <div class="advantage-icon">♥</div>
+            <h3>Личная медиатека</h3>
+            <p>Добавляйте понравившиеся релизы в избранное — ваша коллекция сохраняется прямо в браузере.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-discover">
+    <div class="container">
+      <div class="home-discover__inner">
+        <div>
+          <div class="eyebrow">ДЛЯ МУЗЫКАНТОВ И БИТМЕЙКЕРОВ</div>
+          <h2>Ваш релиз ближе,<br><em>чем кажется.</em></h2>
+          <p>Хотите попасть в подборку недели или отправить демо на рецензию редакции? Заполните короткую заявку на продвижение.</p>
+          <a class="btn btn-dark btn-lg mt-2" href="order.html">Подать заявку на релиз ↗</a>
+        </div>
+        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1000&q=85" alt="Студийное оборудование и синтезатор">
+      </div>
+    </div>
+  </section>
+
+  <section class="popular-section section-space">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">ТРЕНДЫ НЕДЕЛИ</div>
+          <h2>Треки, которые<br><em>запоминаются.</em></h2>
+        </div>
+        <a class="text-link" href="catalog.html">Весь каталог <span>↗</span></a>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="track-card h-100">
+            <div class="track-card__cover" style="--h:18">
+              <span class="badge badge-soft">ТРЕНД</span>
+              <div class="cover-art-ring"></div>
+              <button class="play-overlay-btn" type="button" data-play-track="1" aria-label="Слушать Ночной маршрут">▶</button>
+            </div>
+            <div class="track-card__body">
+              <div class="track-genre">ELECTRONIC · LUME</div>
+              <h3>Ночной маршрут</h3>
+              <p>Атмосферный ночной бит с глубоким аналоговым басом.</p>
+              <div class="card-meta"><span>Длительность <b>3:42</b></span><span>Прослушиваний <b>4 812</b></span></div>
+              <a class="text-link" href="product.html?id=1">Изучить трек ↗</a>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="track-card h-100">
+            <div class="track-card__cover" style="--h:28">
+              <span class="badge badge-soft">НОВИНКА</span>
+              <div class="cover-art-ring"></div>
+              <button class="play-overlay-btn" type="button" data-play-track="2" aria-label="Слушать Тёплый бетон">▶</button>
+            </div>
+            <div class="track-card__body">
+              <div class="track-genre">LO-FI · КОРА</div>
+              <h3>Тёплый бетон</h3>
+              <p>Мягкий виниловый треск и тёплое электропиано.</p>
+              <div class="card-meta"><span>Длительность <b>2:54</b></span><span>Прослушиваний <b>3 204</b></span></div>
+              <a class="text-link" href="product.html?id=2">Изучить трек ↗</a>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="track-card h-100">
+            <div class="track-card__cover" style="--h:12">
+              <span class="badge badge-soft">ПОПУЛЯРНЫЙ</span>
+              <div class="cover-art-ring"></div>
+              <button class="play-overlay-btn" type="button" data-play-track="3" aria-label="Слушать Сто вторая">▶</button>
+            </div>
+            <div class="track-card__body">
+              <div class="track-genre">HIP-HOP · ДЫМ И КО</div>
+              <h3>Сто вторая</h3>
+              <p>Плотный андеграунд-инструментал с качающим ритмом.</p>
+              <div class="card-meta"><span>Длительность <b>3:18</b></span><span>Прослушиваний <b>5 631</b></span></div>
+              <a class="text-link" href="product.html?id=3">Изучить трек ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="catalog.html" class="btn btn-dark btn-lg">Слушать все треки ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-section">
+    <div class="container">
+      <div class="quote-mark">“</div>
+      <blockquote>Музыка — это голос,<br>который звучит <em>громче любых слов.</em></blockquote>
+      <p>SOUNDPROJECT · О ФИЛОСОФИИ ЗВУКА</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-12 col-md-4">
+        <a class="brand brand--footer" href="index.html">SOUNDPROJECT<span>.</span></a>
+        <p class="footer-muted">Независимая музыкальная платформа для артистов и слушателей. Открывайте новую музыку каждый день.</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <h3>Навигация</h3>
+        <ul class="footer-nav-list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+          <li><a href="order.html">Подать релиз</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-5">
+        <h3>Связаться</h3>
+        <a class="footer-contact" href="mailto:hello@soundproject.ru"><span class="contact-icon">✉</span>hello@soundproject.ru</a>
+        <a class="footer-contact" href="tel:+78005553535"><span class="contact-icon">☏</span>+7 (800) 555-35-35</a>
+        <div class="footer-socials">
+          <h3>Мы в соцсетях</h3>
+          <div class="social-links social-links--footer">
+            <a href="https://vk.com/" target="_blank" rel="noopener noreferrer"><span class="social-mark">ВК</span><span>ВКонтакте</span><span>↗</span></a>
+            <a href="https://max.ru/" target="_blank" rel="noopener noreferrer"><span class="social-mark">М</span><span>MAX</span><span>↗</span></a>
+            <a href="https://t.me/" target="_blank" rel="noopener noreferrer"><span class="social-mark">ТГ</span><span>Telegram</span><span>↗</span></a>
+            <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer"><span class="social-mark">YT</span><span>YouTube</span><span>↗</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SoundProject. Все права защищены.</span>
+      <a href="#top">Наверх ↑</a>
+    </div>
+  </div>
+</footer>
+
+<button id="backTop" type="button" aria-label="Наверх">↑</button>
+
+<!-- Модальное окно загрузки трека -->
+<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form id="uploadForm" novalidate>
+        <div class="modal-header border-bottom-0 pb-0">
+          <h2 class="h4 mb-0" id="uploadModalLabel">Загрузить трек</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="upTitle" class="form-label">Название трека *</label>
+            <input type="text" class="form-control" id="upTitle" placeholder="Например: Ночной город" required minlength="2">
+            <div class="invalid-feedback">Введите название трека (минимум 2 символа).</div>
+          </div>
+          <div class="mb-3">
+            <label for="upArtist" class="form-label">Исполнитель *</label>
+            <input type="text" class="form-control" id="upArtist" placeholder="Ваш псевдоним" required>
+            <div class="invalid-feedback">Укажите имя исполнителя.</div>
+          </div>
+          <div class="mb-3">
+            <label for="upGenre" class="form-label">Жанр *</label>
+            <select class="form-select" id="upGenre" required>
+              <option value="" selected disabled>Выберите жанр</option>
+              <option value="electronic">Electronic</option>
+              <option value="lofi">Lo-Fi</option>
+              <option value="hiphop">Hip-Hop</option>
+              <option value="pop">Pop</option>
+              <option value="rock">Rock</option>
+              <option value="ambient">Ambient</option>
+            </select>
+            <div class="invalid-feedback">Выберите жанр.</div>
+          </div>
+          <div class="mb-3">
+            <label for="upAudio" class="form-label">Аудиофайл *</label>
+            <input type="file" class="form-control" id="upAudio" accept="audio/*" required>
+            <div class="invalid-feedback">Прикрепите аудиофайл.</div>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="upRights" required>
+            <label class="form-check-label" for="upRights">Подтверждаю, что обладаю авторскими правами на релиз *</label>
+            <div class="invalid-feedback">Необходимо подтвердить права.</div>
+          </div>
+        </div>
+        <div class="modal-footer border-top-0 pt-0">
+          <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Отмена</button>
+          <button type="submit" class="btn btn-dark">Опубликовать ↗</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Глобальный нижний аудиоплеер -->
+<aside class="global-player" aria-label="Аудиоплеер">
+  <div class="container h-100">
+    <div class="d-flex align-items-center h-100 gap-3">
+      <div style="min-width:0;flex:0 0 190px" class="d-none d-md-block">
+        <div class="player-title text-truncate" id="playerTitle">Выберите трек</div>
+        <div class="player-artist text-truncate" id="playerArtist">SoundProject</div>
+      </div>
+      <div class="d-flex align-items-center gap-1">
+        <button class="player-btn" id="pPrev" type="button" aria-label="Предыдущий">⏮</button>
+        <button class="player-btn play-btn" id="pToggle" type="button" aria-label="Играть / Пауза">▶</button>
+        <button class="player-btn" id="pNext" type="button" aria-label="Следующий">⏭</button>
+      </div>
+      <div class="d-flex align-items-center gap-3 flex-grow-1">
+        <span class="player-time d-none d-sm-inline" id="pTime">0:00 / 0:00</span>
+        <div class="player-bar-track" id="pBarTrack" role="progressbar" aria-label="Прогресс">
+          <div class="player-bar-fill" id="pBarFill" style="width:0"></div>
+        </div>
+      </div>
+      <div class="vol-wrap d-none d-lg-flex align-items-center gap-2">
+        <span style="font-size:13px;color:#a99c91">🔊</span>
+        <input type="range" id="pVolume" min="0" max="100" value="80" aria-label="Громкость">
+      </div>
+    </div>
+  </div>
+</aside>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
