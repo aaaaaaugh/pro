@@ -87,7 +87,52 @@ function refreshPlayerUI() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+/* ---------- Эталонная переключалка темы ---------- */
+function initTheme() {
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  const KEY = 'sp-theme';
+
+  const applyTheme = (theme) => {
+    root.setAttribute('data-bs-theme', theme);
+    try { localStorage.setItem(KEY, theme); } catch (e) {}
+    if (btn) {
+      const isDark = theme === 'dark';
+      btn.setAttribute('aria-pressed', String(isDark));
+      btn.title = isDark ? 'Включить светлую тему' : 'Включить тёмную тему';
+    }
+  };
+
+  // 1. Проверяем текущее значение
+  let savedTheme = 'dark';
+  try {
+    savedTheme = localStorage.getItem(KEY) || root.getAttribute('data-bs-theme') || 'dark';
+  } catch (e) {}
+  applyTheme(savedTheme);
+
+  if (!btn) return;
+
+  // 2. Обработчик клика без тяжелых блокирующих вызовов
+  btn.onclick = function (e) {
+    e.preventDefault();
+    const current = root.getAttribute('data-bs-theme') === 'light' ? 'light' : 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+
+    btn.classList.add('is-spinning');
+    setTimeout(() => btn.classList.remove('is-spinning'), 500);
+
+    applyTheme(next);
+  };
+}
+
+// Запуск инициализации
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', onInit);
+} else {
+  onInit();
+}
+
+function onInit() {
   initTheme();
   initWave();
   initPlayer();
@@ -97,55 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initUploadForm();
   initBackTop();
   initNumbers();
-});
-
-/* ---------- 1. Смена темы с круговой волной ---------- */
-function initTheme() {
-  const root = document.documentElement;
-  const btn = document.getElementById('themeToggle');
-  const KEY = 'sp-theme';
-  const current = () => (root.getAttribute('data-bs-theme') === 'light' ? 'light' : 'dark');
-
-  const apply = (theme) => {
-    root.setAttribute('data-bs-theme', theme);
-    if (!btn) return;
-    const dark = theme === 'dark';
-    btn.setAttribute('aria-pressed', String(dark));
-    btn.title = dark ? 'Включить светлую тему' : 'Включить тёмную тему';
-  };
-  apply(current());
-  if (!btn) return;
-
-  btn.addEventListener('click', () => {
-    const next = current() === 'dark' ? 'light' : 'dark';
-    try { localStorage.setItem(KEY, next); } catch {}
-
-    btn.classList.add('is-spinning');
-    setTimeout(() => btn.classList.remove('is-spinning'), 600);
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      apply(next);
-      return;
-    }
-
-    if (typeof document.startViewTransition === 'function') {
-      const r = btn.getBoundingClientRect();
-      const x = r.left + r.width / 2;
-      const y = r.top + r.height / 2;
-      const radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
-      const transition = document.startViewTransition(() => apply(next));
-      transition.ready.then(() => {
-        root.animate(
-          { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
-          { duration: 650, easing: 'cubic-bezier(.4,0,.2,1)', pseudoElement: '::view-transition-new(root)' }
-        );
-      }).catch(() => {});
-    } else {
-      root.classList.add('theme-fade');
-      apply(next);
-      setTimeout(() => root.classList.remove('theme-fade'), 700);
-    }
-  });
 }
 
 /* ---------- 2. Аудио-волна на главной ---------- */
@@ -198,7 +194,7 @@ function initPlayer() {
   audio.addEventListener('ended', () => stepTrack(1));
 }
 
-/* ---------- 4. Каталог, поиск, сортировка, избранное и быстрый просмотр ---------- */
+/* ---------- 4. Каталог и поиск ---------- */
 function initCatalog() {
   const grid = document.getElementById('trackGrid');
   if (!grid) return;
